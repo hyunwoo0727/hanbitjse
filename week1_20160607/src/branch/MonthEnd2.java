@@ -56,6 +56,6 @@ public class MonthEnd2 {
 		}
 
 		System.out.println(mEndDay + "일 입니다.");
-
+		
 	}
 }
