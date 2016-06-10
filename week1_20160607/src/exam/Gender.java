@@ -20,10 +20,12 @@ public class Gender {
 	 * */
 	public static void main(String[] args) {
 		//-----------initializing------------------//
-		String sCode="";
+		String sCode="",sName="";
 		char gender ='여';
 		Scanner scan = new Scanner(System.in);
 		//-----------operation------------------//
+		System.out.print("이름 : ");
+		sName = scan.next();
 		System.out.print("주민번호 앞자리와 뒤의 한자리만 입력(ex:870727-1) : ");
 		sCode = scan.next();
 		
@@ -34,8 +36,9 @@ public class Gender {
 		default:
 			break;
 		}
+		
 		//-----------console----------------//
-		System.out.println(gender);		
+		System.out.println(sName + "(" + gender+")");		
 
 	}
 }
