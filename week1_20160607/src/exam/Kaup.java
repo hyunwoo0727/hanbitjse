@@ -61,9 +61,12 @@ public class Kaup {
 		}
 //		bmi = Double.parseDouble(new DecimalFormat("0.00").format(bmi));
 		
+		
+//		System.out.println(bmi);
 //		------------------------------------------		
-//		System.out.println("bmi 수치 : "+ bmi +" 결과 : " + result + " 입니다");
-		System.out.printf("bmi 수치 : %.2f 결과 :  %s 입니다",bmi,result);
+		System.out.println("bmi 수치 : "+ Double.parseDouble(String.format("%.2f", bmi)) +
+				" 결과 : " + result + " 입니다");
+//		System.out.printf("bmi 수치 : %.2f 결과 :  %s 입니다",bmi,result);
 //		System.out.println(result + " 입니다");
 	}
 	
