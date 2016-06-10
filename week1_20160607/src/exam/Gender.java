@@ -21,23 +21,25 @@ public class Gender {
 	public static void main(String[] args) {
 		//-----------initializing------------------//
 		String sCode="",sName="";
-		char gender ='여';
+		char gender ='여',genCode=' ';
 		Scanner scan = new Scanner(System.in);
 		//-----------operation------------------//
 		System.out.print("이름 : ");
 		sName = scan.next();
 		System.out.print("주민번호 앞자리와 뒤의 한자리만 입력(ex:870727-1) : ");
-		sCode = scan.next();
+		sCode = scan.next();		
 		
-		switch (sCode.charAt(sCode.length()-1)) {
-		case '1':case '3':case '5':case '7':
+		genCode = sCode.charAt(sCode.length()-1);
+		
+		if(genCode=='0' || genCode=='9'){
+			System.out.println("잘못된 주민등록번호 입니다.");
+			return;
+		}
+	
+		if(Integer.parseInt(String.valueOf(genCode)) % 2 != 0){
 			gender = '남';
-			break;
-		default:
-			break;
 		}
 		
-		//-----------console----------------//
 		System.out.println(sName + "(" + gender+")");		
 
 	}
