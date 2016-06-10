@@ -27,14 +27,10 @@ public class OddEven {
 		//-----------operation------------------//
 		System.out.println("홀일까 짝일까?(짝이면 0 홀이면 1) : ");
 		selectNum = scan.nextInt();
-		System.out.println("랜덤 수는 " + num);
+		System.out.println("랜덤 수는 " + num);		
 		
-		if(selectNum!=0 && selectNum !=1){
-			System.out.println("0과 1만 입력 가능합니다");
-			return;
-		}
 		if(selectNum==num%2){
-				result = "WIN";
+				result = "WIN";  
 		}
 		//-----------console----------------//
 		System.out.println(result);
