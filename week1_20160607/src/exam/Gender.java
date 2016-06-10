@@ -34,12 +34,10 @@ public class Gender {
 		if(genCode=='0' || genCode=='9'){
 			System.out.println("잘못된 주민등록번호 입니다.");
 			return;
-		}
-	
-		if(Integer.parseInt(String.valueOf(genCode)) % 2 != 0){
+		}		
+		if(genCode%2 != 0){
 			gender = '남';
 		}
-		
 		System.out.println(sName + "(" + gender+")");		
 
 	}
