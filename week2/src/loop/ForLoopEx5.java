@@ -17,11 +17,13 @@ public class ForLoopEx5 {
 		//-----------operation------------------//
 		for (int i = 1 ; i <= 10 ; i++) {
 			if(i%3==0){
-				continue;
+				continue; 
+				// return = kill method   break = kill statement 
 			}
 			System.out.print(i+"\t");
 		}	
 		
+		System.out.print("hi");
 		//-----------console----------------//
 		
 	}
