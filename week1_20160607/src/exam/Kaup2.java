@@ -40,10 +40,13 @@ public class Kaup2 {
 				}else if(kaup >= 40){
 					result = "비만3단계";
 				}
-				System.out.println(name+"은 BMI지수는 "
+/*				System.out.println(name+"은 BMI지수는 "
 				+Double.parseDouble(String.format("%.2f", kaup))+"이고,"
 						+ " "+result+"이다"); 
-		
+*/				
+				
+				System.out.printf("%s님의 BMI지수는 %.2f이고 %s 입니다",name,kaup,result);
+				
 	}
 	
 }

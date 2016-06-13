@@ -45,5 +45,5 @@ public class MonthEnd3 {
 		}
 		System.out.println(lastDay+"일");
 		
-	}
+	}	
 }
