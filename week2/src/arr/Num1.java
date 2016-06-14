@@ -40,6 +40,6 @@ public class Num1 {
 	
 		//-----------console----------------//
 		System.out.printf("최고점 : %d \t 최저점 : %d\n",max,min);
-
+		
 	}
 }
