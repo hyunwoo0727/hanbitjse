@@ -87,9 +87,7 @@ public class Controller {
 				for (i=0; i < cnt; i++) {
 					score[i] = s.nextInt();
 				}
-				System.out.println("MAX : " + scr.getMax(score));
-				System.out.println("MIN : " + scr.getMin(score));
-				
+				System.out.println("MAX : " + scr.getMax(score) + "  |   MIN : " + scr.getMin(score));
 				break;
 			case "7":
 				System.out.println("이름,연봉을 입력하세요(만원)");
