@@ -75,7 +75,7 @@ public class Euclid {
         	}else{
         		gcd=small;
         		lcm = (a*b)/gcd;
-        		System.out.printf("최대 공약수 : %d 최소 공배수 : %d",gcd,lcm);
+        		System.out.printf("최대 공약수 : %d 최소 공배수 : %d 임다",gcd,lcm);
         		break;
         	}
                // 이 부분을 코딩하여 완성하시오
