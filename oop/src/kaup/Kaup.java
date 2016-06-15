@@ -9,14 +9,44 @@ package kaup;
  * @file   : Kaup.java 
  * @story  : 
 */
-public class Kaup2 {
-	public String getKaup(String name,String height,String weight){
+public class Kaup {
+	String name,height,weight;
+	
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public String getHeight() {
+		return height;
+	}
+
+	public void setHeight(String height) {
+		this.height = height;
+	}
+
+	public String getWeight() {
+		return weight;
+	}
+
+	public void setWeight(String weight) {
+		this.weight = weight;
+	}
+	
+
+	public void saveDB(){
+		
+	}
+	
+	public String getKaup(){
 		String result="";
 		
-		double h = Double.parseDouble(height);
-		double w = Double.parseDouble(weight);
-		
-		
+		double h = Double.parseDouble(this.height),
+				w = Double.parseDouble(this.weight);
+				
 		double kaup = w / (h / 100) / (h / 100);
 		
 		if (kaup < 18.5) {
