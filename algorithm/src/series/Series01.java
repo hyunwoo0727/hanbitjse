@@ -17,12 +17,26 @@ public class Series01 {
 	 * */
 	
 	public static void main(String[] args) {
-		int i=0,diff=1,sum=0;
+		/**
+		 * 나열    i     ???
+		 * 1 =  0 + ?    ?
+		 * 2 =  1 + ?    1 
+		 * 4 =  2 + ?    2
+		 * 7 =  3 + ?    4
+		 * 11 = 4 + ?    7
+		 * 16 = 5 + ?   11 
+		 20항 20번 
+		 합계...공차
+		 */
 		
+		int i=0,diff=1,sum=0;
+		// 0~19 i
+		// diff 1 2 3 4 5 6 7 8 9 10 ..
+		// 숫자 1 2 4 7 11 16 22 
 		for (; i < 20; i++){
-			diff = diff + i;
+			diff += i;
 			System.out.printf("%d ",diff);
-			sum = sum + diff;
+			sum += diff;
 		}
 		
 		System.out.println(sum);

@@ -25,7 +25,7 @@ public class KaupController {
 				JOptionPane.showConfirmDialog(null, "종료?");
 				return;
 			case "1":
-				System.out.println(kaup2.getKaup(JOptionPane.showInputDialog("이름"), Double.parseDouble(JOptionPane.showInputDialog("키(cm)")), Double.parseDouble(JOptionPane.showInputDialog("몸무게(kg)"))));
+				System.out.println(kaup2.getKaup(JOptionPane.showInputDialog("이름"), JOptionPane.showInputDialog("키(cm)"), JOptionPane.showInputDialog("몸무게(kg)")));
 				break;
 			default:
 				break;

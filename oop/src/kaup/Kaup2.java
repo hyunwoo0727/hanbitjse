@@ -10,9 +10,11 @@ package kaup;
  * @story  : 
 */
 public class Kaup2 {
-	public String getKaup(String name,double height,double weight){
+	public String getKaup(String name,String height,String weight){
 		String result="";
-		double kaup = weight / (height / 100) / (height / 100);
+		double h = Double.parseDouble(String.format("%.1f", height));
+		double w = Double.parseDouble(String.format("%.1f", weight));
+		double kaup = w / (h / 100) / (h / 100);
 		
 		if (kaup < 18.5) {
 			result = "저체중";
