@@ -12,8 +12,9 @@ package kaup;
 public class Kaup2 {
 	public String getKaup(String name,String height,String weight){
 		String result="";
-		double h = Double.parseDouble(String.format("%.1f", height));
-		double w = Double.parseDouble(String.format("%.1f", weight));
+		double h = Double.parseDouble(height);
+		double w = Double.parseDouble(weight);
+		
 		double kaup = w / (h / 100) / (h / 100);
 		
 		if (kaup < 18.5) {
@@ -29,6 +30,7 @@ public class Kaup2 {
 		}else if(kaup >= 40){
 			result = "비만3단계";
 		}
+		
 		
 		return "카우푸 지수 : " + String.format("%.2f", kaup) + " 이고 " +result + " 입니다";
 	}
