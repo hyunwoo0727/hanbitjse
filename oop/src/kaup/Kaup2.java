@@ -12,8 +12,10 @@ package kaup;
 public class Kaup2 {
 	public String getKaup(String name,String height,String weight){
 		String result="";
+		
 		double h = Double.parseDouble(height);
 		double w = Double.parseDouble(weight);
+		
 		
 		double kaup = w / (h / 100) / (h / 100);
 		
