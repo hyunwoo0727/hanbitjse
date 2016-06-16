@@ -47,7 +47,7 @@ public class Student {
 				this.age = nowYear - (1900+birthYear)+1;
 				break;
 			default:
-				this.age = nowYear - birthYear+1;
+				this.age = nowYear - (2000+birthYear)+1;
 				break;
 		}
 		

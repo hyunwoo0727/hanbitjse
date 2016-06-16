@@ -33,6 +33,10 @@ public class SchoolController {
 				std = new Student(name,id,pw1,ssn);
 				break;
 			case "2":
+				if(std==null){
+					JOptionPane.showMessageDialog(null, "등록 먼저 해주세요");
+					break;
+				}
 				JOptionPane.showMessageDialog(null, "이름 : " + std.getName() 
 				+ "\n아이디 : " + std.getId() + "\n성별 : " + std.getGender() +"\n나이 : " + std.getAge()	);
 				break;
