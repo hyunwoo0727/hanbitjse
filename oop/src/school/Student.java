@@ -42,9 +42,11 @@ public class Student {
 			case 2:
 			case 5:
 			case 6:
+				this.age = nowYear - (1900+birthYear)+1;
+				break;
 			case 9:
 			case 0:
-				this.age = nowYear - (1900+birthYear)+1;
+				this.age = nowYear - (1800+birthYear)+1;
 				break;
 			default:
 				this.age = nowYear - (2000+birthYear)+1;
