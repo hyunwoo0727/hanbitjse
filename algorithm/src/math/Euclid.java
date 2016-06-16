@@ -67,7 +67,7 @@ public class Euclid {
                small = a;
         }
          while(true){
-        	mok = big/small;
+        	
         	nmg = big%small;
         	if(nmg!=0){
         		big = small;
