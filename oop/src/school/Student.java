@@ -4,7 +4,7 @@
 package school;
 
 import java.text.SimpleDateFormat;
-import java.util.Calendar;
+import java.util.Date;
 
 /**
  * @date   : 2016. 6. 16.
@@ -32,20 +32,17 @@ public class Student {
 		int sCode = Integer.parseInt(ssn.substring(ssn.indexOf("-")+1));
 		this.gender = (sCode+10)%2==0 ? "여" : "남";
 		
-		SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
-		this.regDate = sdf.format(Calendar.getInstance().getTime());
+//		SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
+//		this.regDate = sdf.format(Calendar.getInstance().getTime());
+		this.regDate = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss").format(new Date(System.currentTimeMillis()));
 		
 		int nowYear = Integer.parseInt(regDate.substring(0,4));
 		int birthYear = Integer.parseInt(ssn.substring(0, 2));
 		switch (sCode) {
-			case 1:
-			case 2:
-			case 5:
-			case 6:
+			case 1:case 2:case 5:case 6:
 				this.age = nowYear - (1900+birthYear)+1;
 				break;
-			case 9:
-			case 0:
+			case 9:case 0:
 				this.age = nowYear - (1800+birthYear)+1;
 				break;
 			default:
