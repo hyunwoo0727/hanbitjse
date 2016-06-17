@@ -38,9 +38,6 @@ public class Something {
 	public String getBbb() {
 		return bbb;
 	}
-	public void setBbb(String bbb) {
-		this.bbb = bbb;
-	}
 	public int getCcc() {
 		return ccc;
 	}
