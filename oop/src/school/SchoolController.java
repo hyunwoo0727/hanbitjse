@@ -37,8 +37,7 @@ public class SchoolController {
 					JOptionPane.showMessageDialog(null, "등록 먼저 해주세요");
 					break;
 				}
-				JOptionPane.showMessageDialog(null, "이름 : " + std.getName() 
-				+ "\n아이디 : " + std.getId() + "\n성별 : " + std.getGender() +"\n나이 : " + std.getAge()	);
+				JOptionPane.showMessageDialog(null, std.toString());
 				break;
 			case "0":
 				if(JOptionPane.showConfirmDialog(null, "Are you sure you want to exit?")==0){
@@ -50,5 +49,7 @@ public class SchoolController {
 				break;
 			}
 		}
+		
+	
 	}
 }

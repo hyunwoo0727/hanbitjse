@@ -21,7 +21,7 @@ public class Student {
 	private String gender;
 	private String regDate;
 	private String ssn;
-	private int age;
+	private int    age;
 	
 	public Student(String name,String id,String pw,String ssn){
 		this.name = name;
@@ -74,6 +74,13 @@ public class Student {
 	public String getName() {
 		return name;
 	}
+
+	@Override
+	public String toString() {
+		return "학생 [아이디=" + id + ", 이름=" + name + ", 성별=" + gender + ", 등록일=" + regDate
+				+ ", 주민번호=" + ssn + ", 나이=" + age + "]";
+	}
+	
 	
 	
 	
