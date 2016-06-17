@@ -29,7 +29,7 @@ public class Student {
 		this.pw = pw;
 		this.ssn = ssn;
 		
-		int sCode = Integer.parseInt(ssn.substring(ssn.indexOf("-")+1));
+		int sCode = Integer.parseInt(ssn.split("-")[1]);
 		this.gender = (sCode+10)%2==0 ? "여" : "남";
 		this.regDate = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss").format(new Date(System.currentTimeMillis()));
 		
