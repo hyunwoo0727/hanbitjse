@@ -5,7 +5,6 @@ package something;
 
 import javax.swing.JOptionPane;
 
-import jdk.nashorn.internal.scripts.JO;
 
 /**
  * @date   : 2016. 6. 17.
