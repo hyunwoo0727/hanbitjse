@@ -14,7 +14,7 @@ import java.util.Date;
 */
 public class Student {
 	
-	public final static String SCHOOL_NAME = "한빛학교";
+	
 	private String id;
 	private String pw;
 	private String name;

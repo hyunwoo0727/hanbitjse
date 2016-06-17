@@ -5,6 +5,8 @@ package bank;
 
 import javax.swing.JOptionPane;
 
+import global.UserConstants;
+
 /**
  * @date   : 2016. 6. 15.
  * @author : HyunWoo Lee
@@ -68,7 +70,7 @@ public class BankContoller {
 					JOptionPane.showMessageDialog(null, "통장부터 만드세요");
 					break;
 				}
-				JOptionPane.showMessageDialog(null, Account.BANK_NAME + "\n계좌번호 : " + acnt.getAccount() + "\n예금주 : " + acnt.getName() + "\n아이디 : " + acnt.getId()+
+				JOptionPane.showMessageDialog(null, UserConstants.BANK_NAME + "\n계좌번호 : " + acnt.getAccount() + "\n예금주 : " + acnt.getName() + "\n아이디 : " + acnt.getId()+
 						"\n잔액 : " + acnt.getMoney() + "원\n");
 				break;
 			default:

@@ -18,7 +18,7 @@ public class Account {
 		private String pw;
 		private int    money;
 		private int    accountNo;
-		public final static String BANK_NAME = "국민은행";
+		
 		
 		public Account(String name) {
 			
