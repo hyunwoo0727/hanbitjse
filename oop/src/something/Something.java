@@ -26,6 +26,15 @@ public class Something {
 	public String getAaa() {
 		return aaa;
 	}
+	
+	public void setAaa(String aaa) {
+		this.aaa = aaa;
+	}
+
+	public void setDdd(int ddd) {
+		this.ddd = ddd;
+	}
+
 	public String getBbb() {
 		return bbb;
 	}

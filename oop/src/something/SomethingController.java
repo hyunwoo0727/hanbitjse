@@ -23,11 +23,8 @@ public class SomethingController {
 				String aaa = JOptionPane.showInputDialog("aaa(문자)");
 				String bbb = JOptionPane.showInputDialog("bbb(문자)");
 				String ccc = JOptionPane.showInputDialog("ccc(숫자)");
-				int ic = Integer.parseInt(ccc);
-				
 				String ddd = JOptionPane.showInputDialog("ddd(숫자)");
-				int d = Integer.parseInt(ddd);
-				smt = new Something(aaa, bbb,ic ,d);
+				smt = new Something(aaa, bbb, Integer.parseInt(ccc), Integer.parseInt(ddd));
 				break;
 			case "2":
 				if(smt==null){
