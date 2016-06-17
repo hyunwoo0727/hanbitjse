@@ -15,12 +15,10 @@ public class Something {
 	private int ccc;
 	private int ddd;
 	
-	public Something(String aaa,String bbb,int ccc,int ddd){
+	public Something(String bbb,int ccc){
 		
-		this.aaa = aaa;
 		this.bbb = bbb;
 		this.ccc = ccc;
-		this.ddd = ddd;
 	}
 	
 	public String getAaa() {

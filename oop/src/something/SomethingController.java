@@ -19,11 +19,13 @@ public class SomethingController {
 		while (true) {
 			switch (JOptionPane.showInputDialog("1.등록 2.조회 0.종료")) {
 			case "1":
-				String aaa = JOptionPane.showInputDialog("aaa(문자)");
 				String bbb = JOptionPane.showInputDialog("bbb(문자)");
 				String ccc = JOptionPane.showInputDialog("ccc(숫자)");
+				smt = new Something(bbb, Integer.parseInt(ccc));
+				String aaa = JOptionPane.showInputDialog("aaa(문자)");
 				String ddd = JOptionPane.showInputDialog("ddd(숫자)");
-				smt = new Something(aaa, bbb, Integer.parseInt(ccc), Integer.parseInt(ddd));
+				smt.setAaa(aaa);
+				smt.setDdd(Integer.parseInt(ddd));
 				break;
 			case "2":
 				if(smt==null){
