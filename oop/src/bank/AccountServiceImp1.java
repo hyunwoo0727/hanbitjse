@@ -5,7 +5,7 @@ package bank;
 
 
 public class AccountServiceImp1 implements AccountService {
-	// 1.통장개설 2.입금 3.조회 4.출금 5.통장내역
+	// 1.통장개설 2.입금 3.조회 4.출금 5.통장내역 6.해지
 	AccountBean acnt;
 	
 	@Override

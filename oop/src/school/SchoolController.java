@@ -29,7 +29,7 @@ public class SchoolController {
 				String nowPw = JOptionPane.showInputDialog("현재 비밀번호");
 				if(stuService.checkPassword(nowPw)){
 					stuService.updateStudent(JOptionPane.showInputDialog("바꿀 비밀번호"));
-					JOptionPane.showMessageDialog(null, "변경 완료!");
+					JOptionPane.showMessageDialog(null, "변경 완료");
 				}else{
 					JOptionPane.showMessageDialog(null, "비번이 틀려요");
 				}
