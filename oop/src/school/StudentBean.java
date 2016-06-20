@@ -6,14 +6,15 @@ package school;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+import global.UserConstants;
+
 /**
  * @date   : 2016. 6. 16.
  * @author : HyunWoo Lee
  * @file   : Student.java 
  * @story  : 학생클라스
 */
-public class Student {
-	
+public class StudentBean {
 	
 	private String id;
 	private String pw;
@@ -23,7 +24,7 @@ public class Student {
 	private String ssn;
 	private int    age;
 	
-	public Student(String name,String id,String pw,String ssn){
+	public StudentBean(String name,String id,String pw,String ssn){
 		this.name = name;
 		this.id = id;
 		this.pw = pw;
@@ -35,7 +36,7 @@ public class Student {
 		
 		int nowYear = Integer.parseInt(regDate.substring(0,4));
 		int birthYear = Integer.parseInt(ssn.substring(0, 2));
-	
+		
 		switch (sCode) {
 			case 1:case 2:case 5:case 6:
 				this.age = nowYear - (1900+birthYear)+1;
@@ -77,9 +78,11 @@ public class Student {
 
 	@Override
 	public String toString() {
-		return "학생 [아이디=" + id + ", 이름=" + name + ", 성별=" + gender + ", 등록일=" + regDate
-				+ ", 주민번호=" + ssn + ", 나이=" + age + "]";
+		return UserConstants.SCHOOL_NAME + "StudentBean [id=" + id + ", pw=" + pw + ", name=" + name + ", gender=" + gender + ", regDate=" + regDate
+				+ ", ssn=" + ssn + ", age=" + age + "]";
 	}
+
+	
 	
 	
 	

@@ -5,7 +5,6 @@ package bank;
 
 import javax.swing.JOptionPane;
 
-import global.UserConstants;
 
 /**
  * @date   : 2016. 6. 15.
@@ -15,63 +14,42 @@ import global.UserConstants;
 */
 public class BankContoller {
 	public static void main(String[] args) {
-		Account acnt = null;
-		
+		AccountServiceImp1 acsv = new AccountServiceImp1();
 		while (true) {
-			switch (JOptionPane.showInputDialog("1.통장개설 2.입금 3.조회 4.출금 5.통장내역 0.종료")) {
+			switch (JOptionPane.showInputDialog("1.통장개설 2.입금 3.조회 4.출금 5.통장내역 6.계좌삭제 0.종료")) {
 			case "1":
-				if(JOptionPane.showConfirmDialog(null, "계좌 개설?")==0){
-					acnt = new Account(JOptionPane.showInputDialog("예금주:"));
-					acnt.setId(JOptionPane.showInputDialog("아이디"));
-					acnt.setPw(JOptionPane.showInputDialog("비밀번호"));
-					JOptionPane.showMessageDialog(null,"고객님의 계좌번호는 " + acnt.getAccount()+" 입니다.");
-					break;
-				}
+				String[] spec = JOptionPane.showInputDialog("예금주,ID,PW").split(",");
+				acsv.openAccout(spec[0],spec[1],spec[2]);
 				break;
 			case "2":
-				if(acnt==null){
+				if(acsv.acnt==null){
 					JOptionPane.showMessageDialog(null, "통장부터 만드세요");
 					break;
-				}
-				String inputMoney = JOptionPane.showInputDialog("입금액?");
-				acnt.setMoney(acnt.getMoney() + Integer.parseInt(inputMoney));
+				}			
+				acsv.deposit(Integer.parseInt(JOptionPane.showInputDialog("입금액?")));
 				break;
 			case "3":
-				if(acnt==null){
+				if(acsv.acnt==null){
 					JOptionPane.showMessageDialog(null, "통장부터 만드세요");
 					break;
 				}
-				JOptionPane.showMessageDialog(null, "잔액 : " + acnt.getMoney() + "원");
 				break;
 			case "4":
-				if(acnt==null){
+				if(acsv.acnt==null){
 					JOptionPane.showMessageDialog(null, "통장부터 만드세요");
 					break;
 				}
-				
-				String password = JOptionPane.showInputDialog("비밀번호를 입력하세요:");
-				if(password.equals(acnt.getPw())){
-					String withdrawal = JOptionPane.showInputDialog("출금액 ? : ");
-					int iWithdrawal = Integer.parseInt(withdrawal);
-					if(iWithdrawal > acnt.getMoney()){
-						JOptionPane.showMessageDialog(null, "잔액이 부족합니다");
-						break;
-					}else{
-						acnt.setMoney(acnt.getMoney() - iWithdrawal);
-						JOptionPane.showMessageDialog(null, "출금 후 잔액 : " + acnt.getMoney());
-					}
-				}else{
-					JOptionPane.showMessageDialog(null, "비밀번호가 틀렸습니다");
-					break;
-				}
+				JOptionPane.showMessageDialog(null,acsv.withDraw(Integer.parseInt(JOptionPane.showInputDialog("출금액 ? : "))));
 				break;
 			case "5":
-				if(acnt==null){
+				if(acsv.acnt==null){
 					JOptionPane.showMessageDialog(null, "통장부터 만드세요");
 					break;
 				}
-				JOptionPane.showMessageDialog(null, UserConstants.BANK_NAME + "\n계좌번호 : " + acnt.getAccount() + "\n예금주 : " + acnt.getName() + "\n아이디 : " + acnt.getId()+
-						"\n잔액 : " + acnt.getMoney() + "원\n");
+				JOptionPane.showMessageDialog(null, acsv.showAccount());
+				break;
+			case "6":
+				acsv.closeAccount();
 				break;
 			default:
 				if(JOptionPane.showConfirmDialog(null, "Are you sure you want to exit?")==0){

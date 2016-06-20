@@ -3,7 +3,6 @@
  */
 package bank;
 
-import java.util.Random;
 
 /**
  * @date   : 2016. 6. 15.
@@ -14,9 +13,6 @@ import java.util.Random;
 public class Bank {
 		
 	public static void main(String[] args) {
-		Random r = new Random();
-		
-		
 		for(int i=0; i < 20; i++){
 			int accountNo = (int) (Math.random()*1000000+100000);
 			if(accountNo > 1000000){

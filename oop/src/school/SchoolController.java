@@ -14,30 +14,28 @@ import javax.swing.JOptionPane;
 public class SchoolController {
 	public static void main(String[] args) {
 		// ssn 아이디 비번 이름 
-		
-		Student std = null;
+		StudentServiceImpl stuService = new StudentServiceImpl();
 		
 		while (true) {
-			switch (JOptionPane.showInputDialog("1.등록 2.조회 0.종료")) {
+			switch (JOptionPane.showInputDialog("1.등록 2.조회 3.수정 4.삭제 0.종료")) {
 			case "1":
-				String id = JOptionPane.showInputDialog("아이디");
-				String pw1 = JOptionPane.showInputDialog("비밀번호");
-				String pw2 = JOptionPane.showInputDialog("비밀번호를 한번더 입력해주세요");
-				if(!pw1.equals(pw2)){
-					JOptionPane.showMessageDialog(null, "비밀번호가 서로 다릅니다");
-					break;
-				}
-				String name = JOptionPane.showInputDialog("이름");
-				String ssn = JOptionPane.showInputDialog("주민등록번호(ex:880101-1");
-				
-				std = new Student(name,id,pw1,ssn);
+				String[] spec = JOptionPane.showInputDialog("이름,아이디,비밀번호,주민등록번호(ex:870727-1)").split(",");
+				stuService.registStudent(spec[0], spec[1], spec[2], spec[3]);
 				break;
 			case "2":
-				if(std==null){
-					JOptionPane.showMessageDialog(null, "등록 먼저 해주세요");
-					break;
+				JOptionPane.showMessageDialog(null, stuService.findStudent());
+				break;
+			case "3":
+				String nowPw = JOptionPane.showInputDialog("현재 비밀번호");
+				if(stuService.checkPassword(nowPw)){
+					stuService.updateStudent(JOptionPane.showInputDialog("바꿀 비밀번호"));
+					JOptionPane.showMessageDialog(null, "변경 완료!");
+				}else{
+					JOptionPane.showMessageDialog(null, "비번이 틀려요");
 				}
-				JOptionPane.showMessageDialog(null, std.toString());
+				break;
+			case "4":
+				stuService.deleteStudent();
 				break;
 			case "0":
 				if(JOptionPane.showConfirmDialog(null, "Are you sure you want to exit?")==0){
