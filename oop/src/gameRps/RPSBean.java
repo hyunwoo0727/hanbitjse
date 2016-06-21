@@ -1,7 +1,7 @@
 package gameRps;
 
 public class RPSBean {
-	private String winner,value;
+	private String winner;
 	private int comValue,playerValue;
 	
 	public RPSBean(){

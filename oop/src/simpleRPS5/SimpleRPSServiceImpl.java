@@ -1,4 +1,4 @@
-package simpleRPS4;
+package simpleRPS5;
 
 public class SimpleRPSServiceImpl implements SimpleRPSService{
 	SimpleRPSBean rps = new SimpleRPSBean();
@@ -11,24 +11,14 @@ public class SimpleRPSServiceImpl implements SimpleRPSService{
 		int ply = rps.getPlay();
 		System.out.println("디버깅 : 컴"+com+"나"+ply);
 		if (com==ply) {
-			result = "TIE";
+			result = "WIN";
 		}else{
-			switch (Math.abs(ply-com)) {
-			case 1: 
-				result = (ply>com)? "WIN" : "LOSE"; 
-				break;
-			case 2:
-				result = (ply>com)? "LOSE" : "WIN"; 
-				break;
-			default:
-				break;
-			}
-			
+			result = "LOSE";
 		}
 		return result;
 		
 	}
-
+	
 	@Override
 	public String getResult(String result) {
 		

@@ -1,6 +1,6 @@
-package simpleRPS4;
+package simpleRPS5;
 
-public class SimpleRPSServiceImpl implements SimpleRPSService{
+public class SimpleRPSServiceImpl2 implements SimpleRPSService{
 	SimpleRPSBean rps = new SimpleRPSBean();
 	@Override
 	public String playGame(int player) {
@@ -28,6 +28,7 @@ public class SimpleRPSServiceImpl implements SimpleRPSService{
 		return result;
 		
 	}
+	
 
 	@Override
 	public String getResult(String result) {

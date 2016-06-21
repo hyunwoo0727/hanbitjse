@@ -14,7 +14,7 @@ import javax.swing.JOptionPane;
 public class SchoolController {
 	public static void main(String[] args) {
 		// ssn 아이디 비번 이름 
-		StudentServiceImpl stuService = new StudentServiceImpl();
+		StudentService stuService = new StudentServiceImpl();
 		
 		while (true) {
 			switch (JOptionPane.showInputDialog("1.등록 2.조회 3.수정 4.삭제 0.종료")) {
