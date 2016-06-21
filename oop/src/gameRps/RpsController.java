@@ -5,7 +5,6 @@ import javax.swing.JOptionPane;
 public class RpsController {
 	public static void main(String[] args) {
 		RpsService service = new RpsServiceImpl();
-		
 		while(true){
 			switch (JOptionPane.showInputDialog("1.진행 0.종료")) {
 			case "1":
@@ -26,8 +25,6 @@ public class RpsController {
 				}
 				break;
 			}
-				
-		
 		}
 	}
 }

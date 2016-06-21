@@ -12,17 +12,16 @@ public class RpsServiceImpl implements RpsService{
 		switch (rpsBean.getPlayerValue()-rpsBean.getComValue()) {
 		case 0: rpsBean.setWinner("무승부"); break;
 		case -1: case 2: rpsBean.setWinner("컴퓨터 승"); break;
-		default: rpsBean.setWinner("사용자 승"); break;
+		default: rpsBean.setWinner("플레이어 승"); break;
 		}
 	}
-
 	@Override
 	public String showResult() {
 		return rpsBean.toString();
 	}
 	@Override
 	public void setCompValue() {
-		rpsBean.setComValue((int)(Math.random()*3+1));
+		rpsBean.setComValue();
 	}
 	@Override
 	public boolean validation(String sRps) {
