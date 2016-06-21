@@ -1,9 +1,9 @@
 package grade;
 
 public interface GradeService {
-	public String getGrade(int avg);
+	public String getGrade();
 	public int getTotal();
-	public int getAvg(int cnt);
+	public int getAvg();
 	public void registStudent(String[] stuSpec);
-	public String getResult(int total,int avg,String result);
+	public String getResult();
 }

@@ -2,10 +2,10 @@ package grade;
 
 public class GradeServiceImpl implements GradeService{
 	GradeBean gradeBean;
-	
+	int cnt;
 	@Override
-	public String getGrade(int avg) {
-		switch (avg/10) {
+	public String getGrade() {
+		switch (getAvg()/10) {
 		case 10: case 9:
 			return "A";
 		case 8:
@@ -23,13 +23,13 @@ public class GradeServiceImpl implements GradeService{
 		return gradeBean.getKuk() + gradeBean.getEng() + gradeBean.getMath();
 	}
 	@Override
-	public int getAvg(int cnt) {
-		return getTotal()/cnt;
+	public int getAvg() {
+		return getTotal()/this.cnt;
 	}
 	@Override
-	public String getResult(int total,int avg,String result) {
+	public String getResult() {
 		// TODO Auto-generated method stub
-		return gradeBean.toString() + " 총점 : " + total + " 평균 : " + avg + " 결과 : " + result;
+		return gradeBean.toString() + " 총점 : " + getTotal() + " 평균 : " + getAvg() + " 결과 : " + getGrade();
 	}
 
 	@Override
@@ -38,7 +38,10 @@ public class GradeServiceImpl implements GradeService{
 		gradeBean.setKuk(Integer.parseInt(stuSpec[1]));
 		gradeBean.setEng(Integer.parseInt(stuSpec[2]));
 		gradeBean.setMath(Integer.parseInt(stuSpec[3]));
+		this.cnt = stuSpec.length-1;
 	}
+	
+	
 	
 	
 	

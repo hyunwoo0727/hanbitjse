@@ -14,8 +14,6 @@ import javax.swing.JOptionPane;
 */
 public class GradeController {
 	
-	
-	
 	public static void main(String[] args) {
 		GradeService gdService = new GradeServiceImpl();
 		
@@ -24,8 +22,7 @@ public class GradeController {
 			case "1":
 				String[] studentSpec = JOptionPane.showInputDialog("이름,국어점수,영어점수,수학점수").split(",");
 				gdService.registStudent(studentSpec);
-				int avg = gdService.getAvg(studentSpec.length-1);
-				JOptionPane.showMessageDialog(null, gdService.getResult(gdService.getTotal(),avg,gdService.getGrade(avg)));
+				JOptionPane.showMessageDialog(null, gdService.getResult());
 				break;
 			case "0":
 				if(JOptionPane.showConfirmDialog(null, "Are you sure you want to exit?")==0){
