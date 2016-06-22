@@ -18,8 +18,8 @@ public class SimpleMatrix {
 		*/
 		for (int i = 0; i < 2; i++) {
 			for (int j = 1; j < 10; j++) {
-				for (int k = 2; k < 6; k++) {
-					System.out.print(k+(4*i) + "*" + j + "=" + (k+(4*i))*j + "\t");
+				for (int k = 2+(4*i); k < 6+(4*i); k++) {
+					System.out.print(k + "*" + j + "=" + j*k + "\t");
 				}
 				System.out.println();
 			}
