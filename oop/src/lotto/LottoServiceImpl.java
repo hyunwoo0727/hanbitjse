@@ -1,8 +1,17 @@
 package lotto;
 
-public class LottoServiceImpl implements LottoService {
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+
+public class LottoServiceImpl implements LottoService  {
 	private int[][] Lottos;
 	private int count;
+	private static String FILE_NAME = "C:\\hwooo\\eclipse\\lotto.txt";
+	private File file;
 	
 	@Override
 	public void setLottos(LottoBean lot) {
@@ -64,6 +73,37 @@ public class LottoServiceImpl implements LottoService {
 			result += "\r\n";
 		}
 		return result;
+	}
+	@Override
+	public void createFile() {
+		// TODO Auto-generated method stub
+		file = new File(FILE_NAME);
+		try {
+			BufferedWriter bw = new BufferedWriter(new FileWriter(file,false));
+			bw.write(showLottos());
+			bw.flush();
+			bw.close();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	@Override
+	public String readFile()  {
+		String line = "";
+		String message = "";
+		try {
+			BufferedReader br = new BufferedReader(new FileReader(file));
+			while((line=br.readLine()) != null){
+				message += line+"\n";
+			}
+			br.close();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return message;
 	}
 	
 	

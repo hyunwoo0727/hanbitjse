@@ -6,4 +6,6 @@ public interface LottoService {
 	public boolean isDuplication(int[] arr,int num);
 	public void sort(int[] arr);
 	public String showLottos();
+	public void createFile();
+	public String readFile();
 }
