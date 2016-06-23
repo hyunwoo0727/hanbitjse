@@ -1,0 +1,8 @@
+package lotto;
+
+public interface LottoService {
+	public void setLottos(LottoBean lot);
+	public int[][] getLottos();
+	public boolean isDuplication(int[] arr,int num);
+	public void sort(int[] arr);
+}
