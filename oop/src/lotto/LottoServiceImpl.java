@@ -22,7 +22,7 @@ public class LottoServiceImpl implements LottoService {
 				Lottos[i][j] = num;
 			}
 			sort(Lottos[i]);
-		}
+		}	
 	}
 	@Override
 	public int[][] getLottos() {
@@ -59,9 +59,9 @@ public class LottoServiceImpl implements LottoService {
 		String result="";
 		for (int i = 0; i < Lottos.length; i++) {
 			for (int j = 0; j < Lottos[i].length; j++) {
-				result += Lottos[i][j]+" ";
+				result += j==Lottos[i].length-1 ? Lottos[i][j] : Lottos[i][j]+":";
 			}
-			result += "\n";
+			result += "\r\n";
 		}
 		return result;
 	}
