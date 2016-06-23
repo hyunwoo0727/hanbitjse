@@ -23,12 +23,12 @@ public class LottoServiceImpl implements LottoService  {
 		Lottos = new int[count][6];
 		for (int i = 0; i < count; i++) {
 			for (int j = 0; j < Lottos[i].length; j++) {
-				int num = (int)(Math.random()*45 + 1);
-				if(isDuplication(Lottos[i],num)){
+				lot.setNumber((int)(Math.random()*45 + 1));
+				if(isDuplication(Lottos[i],lot.getNumber())){
 					j--;
 					continue;
 				}
-				Lottos[i][j] = num;
+				Lottos[i][j] = lot.getNumber();
 			}
 			sort(Lottos[i]);
 		}	
@@ -38,7 +38,6 @@ public class LottoServiceImpl implements LottoService  {
 		// 로또를 가져온다 
 		return Lottos;
 	}
-
 	@Override
 	public boolean isDuplication(int[] arr,int num) {
 		// 중복방지
@@ -49,7 +48,6 @@ public class LottoServiceImpl implements LottoService  {
 		}
 		return false;
 	}
-
 	@Override
 	public void sort(int[] arr) {
 		int temp=0;
@@ -62,7 +60,6 @@ public class LottoServiceImpl implements LottoService  {
 				}
 			}
 		}
-		
 	}
 	public String showLottos(){
 		String result="";
@@ -105,6 +102,4 @@ public class LottoServiceImpl implements LottoService  {
 		
 		return message;
 	}
-	
-	
 }
