@@ -9,8 +9,6 @@ import java.io.IOException;
 
 import javax.swing.JOptionPane;
 
-import jdk.jfr.events.FileWriteEvent;
-
 public class LottoController {
 	public static void main(String[] args) throws IOException {
 		LottoBean lottoBean = new LottoBean();
@@ -31,9 +29,6 @@ public class LottoController {
 				bw.close();
 				break;
 			case "3":
-		
-				
-			
 				break;
 			case "4":
 				BufferedReader br = new BufferedReader(new FileReader(file));
