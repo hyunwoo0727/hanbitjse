@@ -7,6 +7,10 @@ public class LottoServiceImpl implements LottoService {
 	@Override
 	public void setLottos(LottoBean lot) {
 		count = lot.getMoney()/1000;
+		if(count <= 0){
+			this.Lottos = null;
+			return;
+		}
 		Lottos = new int[count][6];
 		for (int i = 0; i < count; i++) {
 			for (int j = 0; j < Lottos[i].length; j++) {
@@ -49,6 +53,7 @@ public class LottoServiceImpl implements LottoService {
 				}
 			}
 		}
+		
 	}
 	public String showLottos(){
 		String result="";

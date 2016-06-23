@@ -13,9 +13,12 @@ public class LottoController {
 				service.setLottos(lottoBean);
 				break;
 			case "2":
-				JOptionPane.showMessageDialog(null, "");
+				JOptionPane.showMessageDialog(null, service.getLottos()==null ? "금액이 부족합니다" : service.showLottos());
 				break;
 			case "3":
+				lottoBean.setMoney(1000);
+				service.setLottos(lottoBean);
+				JOptionPane.showMessageDialog(null, service.showLottos());
 				break;
 			case "0":
 				if(JOptionPane.showConfirmDialog(null, "종료할건가연?")==0){
