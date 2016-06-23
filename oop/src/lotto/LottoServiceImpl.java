@@ -15,7 +15,7 @@ public class LottoServiceImpl implements LottoService  {
 	
 	@Override
 	public void setLottos(LottoBean lot) {
-		count = lot.getMoney()/1000;
+		count = this.getCount(lot);
 		if(count <= 0){
 			this.Lottos = null;
 			return;
@@ -24,7 +24,7 @@ public class LottoServiceImpl implements LottoService  {
 		for (int i = 0; i < count; i++) {
 			for (int j = 0; j < Lottos[i].length; j++) {
 				lot.setNumber();
-				if(isDuplication(Lottos[i],lot.getNumber())){
+				if(isDuplication(i,lot.getNumber())){
 					j--;
 					continue;
 				}
@@ -39,10 +39,10 @@ public class LottoServiceImpl implements LottoService  {
 		return Lottos;
 	}
 	@Override
-	public boolean isDuplication(int[] arr,int num) {
+	public boolean isDuplication(int row,int num) {
 		// 중복방지
-		for (int i = 0; i < arr.length; i++) {
-			if(arr[i]==num){
+		for (int i = 0; i < Lottos[row].length; i++) {
+			if(Lottos[row][i]==num){
 				return true;
 			}
 		}
@@ -101,5 +101,10 @@ public class LottoServiceImpl implements LottoService  {
 		}
 		
 		return message;
+	}
+	@Override
+	public int getCount(LottoBean lot) {
+		// TODO Auto-generated method stub
+		return lot.getMoney()/1000;
 	}
 }
