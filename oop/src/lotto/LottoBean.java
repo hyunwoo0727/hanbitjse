@@ -12,7 +12,7 @@ public class LottoBean {
 	public int getNumber() {
 		return number;
 	}
-	public void setNumber(int number) {
-		this.number = number;
+	public void setNumber() {
+		this.number = (int)(Math.random()*45 + 1);
 	}
 }

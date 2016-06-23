@@ -23,7 +23,7 @@ public class LottoServiceImpl implements LottoService  {
 		Lottos = new int[count][6];
 		for (int i = 0; i < count; i++) {
 			for (int j = 0; j < Lottos[i].length; j++) {
-				lot.setNumber((int)(Math.random()*45 + 1));
+				lot.setNumber();
 				if(isDuplication(Lottos[i],lot.getNumber())){
 					j--;
 					continue;
