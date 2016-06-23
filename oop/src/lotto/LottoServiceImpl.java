@@ -10,7 +10,7 @@ import java.io.IOException;
 public class LottoServiceImpl implements LottoService  {
 	private int[][] Lottos;
 	private int count;
-	private static String FILE_NAME = "C:\\hwooo\\eclipse\\lotto.txt";
+	private String serialNo = "C:\\lotto\\";
 	private File file;
 	
 	@Override
@@ -61,46 +61,59 @@ public class LottoServiceImpl implements LottoService  {
 			}
 		}
 	}
-	public String showLottos(){
-		String result="";
-		for (int i = 0; i < Lottos.length; i++) {
-			for (int j = 0; j < Lottos[i].length; j++) {
-				result += j==Lottos[i].length-1 ? Lottos[i][j] : Lottos[i][j]+":";
-			}
-			result += "\r\n";
-		}
-		return result;
-	}
 	@Override
 	public void createFile() {
 		// TODO Auto-generated method stub
-		file = new File(FILE_NAME);
+		serialNo = serialNo + (int)(Math.random()*999999+100000) + ".txt";
+		file = new File(serialNo);
+		BufferedWriter bw=null;
 		try {
-			BufferedWriter bw = new BufferedWriter(new FileWriter(file,false));
-			bw.write(showLottos());
-			bw.flush();
-			bw.close();
+			bw = new BufferedWriter(new FileWriter(file,false));
+			StringBuffer sb = new StringBuffer();
+			for (int i = 0; i < Lottos.length; i++) {
+				for (int j = 0; j < Lottos[i].length; j++) {
+					sb.append(j==Lottos[i].length-1 ? Lottos[i][j] : Lottos[i][j]+":");
+				}
+				sb.append("/");
+			}
+			String[] myLotto = sb.toString().split("/");
+			for (String lots : myLotto) {
+				lots += System.getProperty("line.separator");
+				bw.write(lots);
+			}
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
+		}finally {
+			try {
+				bw.flush();
+				bw.close();
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 		}
 	}
 	@Override
 	public String readFile()  {
 		String line = "";
-		String message = "";
+		StringBuffer sb = new StringBuffer();
+		BufferedReader br=null;
 		try {
-			BufferedReader br = new BufferedReader(new FileReader(file));
+			br = new BufferedReader(new FileReader(file));
 			while((line=br.readLine()) != null){
-				message += line+"\n";
+				sb.append(line+"\n");
 			}
-			br.close();
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
+		}finally {
+			try {
+				br.close();
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 		}
-		
-		return message;
+		return sb.toString();
 	}
 	@Override
 	public int getCount(LottoBean lot) {
