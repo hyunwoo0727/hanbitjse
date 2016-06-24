@@ -31,13 +31,5 @@ public class LottoBallServiceImpl implements LottoBallService {
 		
 		return winLotto;
 	}
-	@Override
-	public boolean isDuplicate(int num) {
-		for (int i = 0; i < winLotto.length; i++) {
-			if(winLotto[i]==num){
-				return true;
-			}
-		}
-		return false;
-	}
+
 }
