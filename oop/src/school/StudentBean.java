@@ -24,6 +24,9 @@ public class StudentBean {
 	private String ssn;
 	private int    age;
 	
+	public StudentBean() {
+	}
+	
 	public StudentBean(String name,String id,String pw,String ssn){
 		this.name = name;
 		this.id = id;
