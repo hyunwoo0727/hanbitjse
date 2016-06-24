@@ -32,8 +32,6 @@ public class LottoBallServiceImpl implements LottoBallService {
 	@Override
 	public int[] getLottoball() {
 		// TODO Auto-generated method stub
-		
 		return winLotto;
 	}
-
 }

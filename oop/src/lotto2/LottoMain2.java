@@ -8,14 +8,13 @@ import java.io.IOException;
 public class LottoMain2 {
 	public static void main(String[] args) {
 		LottoBallService service = new LottoBallServiceImpl();
-		
 		service.setLottoball();
 		BufferedWriter bw=null;
 		int[] winLotto = service.getLottoball();
 		try {
 			bw = new BufferedWriter(new FileWriter(new File("C:\\lotto\\lotto.txt"),false));
 			for (int i = 0; i < winLotto.length; i++) {
-				bw.write(winLotto.length-1==i ? winLotto[i]+"" : winLotto[i] + ":");				
+				bw.write(winLotto.length-1==i ? String.valueOf(winLotto[i]) : winLotto[i] + ":");				
 			}
 		} catch (IOException e) {
 			e.printStackTrace();
@@ -28,7 +27,6 @@ public class LottoMain2 {
 				e.printStackTrace();
 			}
 		}
-		
 		System.out.print("당첨 번호 : ");
 		for (int num : service.getLottoball()) {
 			System.out.print(num + " ");
