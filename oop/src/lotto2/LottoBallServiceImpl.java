@@ -11,17 +11,20 @@ public class LottoBallServiceImpl implements LottoBallService {
 		// TODO Auto-generated method stub	
 		winLotto = new int[6];
 		lottoBean = new LottoBean();
-		for (int i = 0; i < winLotto.length; i++) {
+		int i=0;
+		while(i<6){
 			lottoBean.setNumber();
-			if(isDuplicate(lottoBean.getNumber())){
-				i--;
-				continue;
+			for (int j=0; j < winLotto.length; j++) {
+				if(winLotto[j]==lottoBean.getNumber()){
+					i--;
+					continue;
+				}
 			}
 			winLotto[i] = lottoBean.getNumber();
+			i++;
 		}
 		Arrays.sort(winLotto);
-		
-	}
+}
 	@Override
 	public int[] getLottoball() {
 		// TODO Auto-generated method stub

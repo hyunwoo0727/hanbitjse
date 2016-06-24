@@ -10,13 +10,10 @@ public class LottoMain2 {
 		LottoBallService service = new LottoBallServiceImpl();
 		
 		service.setLottoball();
-		
-		
-		File file = new File("C:\\lotto\\lotto.txt");
 		BufferedWriter bw=null;
 		int[] winLotto = service.getLottoball();
 		try {
-			bw = new BufferedWriter(new FileWriter(file,false));
+			bw = new BufferedWriter(new FileWriter(new File("C:\\lotto\\lotto.txt"),false));
 			for (int i = 0; i < winLotto.length; i++) {
 				bw.write(winLotto.length-1==i ? winLotto[i]+"" : winLotto[i] + ":");				
 			}
