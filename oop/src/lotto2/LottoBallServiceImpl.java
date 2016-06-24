@@ -11,17 +11,17 @@ public class LottoBallServiceImpl implements LottoBallService {
 		// TODO Auto-generated method stub	
 		winLotto = new int[6];
 		lottoBean = new LottoBean();
-		int i=0;
-		while(i<6){
+		int index=0;
+		while(index<6){
 			lottoBean.setNumber();
 			for (int j=0; j < winLotto.length; j++) {
 				if(winLotto[j]==lottoBean.getNumber()){
-					i--;
+					index--;
 					continue;
 				}
 			}
-			winLotto[i] = lottoBean.getNumber();
-			i++;
+			winLotto[index] = lottoBean.getNumber();
+			index++;
 		}
 		Arrays.sort(winLotto);
 }
