@@ -16,7 +16,7 @@ public class LottoBallServiceImpl implements LottoBallService {
 		while(index<6){
 			flag=false;
 			lottoBean.setNumber();
-			for (int j=0; j < winLotto.length; j++) {
+			for (int j=0; j <= index; j++) {
 				if(winLotto[j]==lottoBean.getNumber()){
 					flag=true;
 					break;
