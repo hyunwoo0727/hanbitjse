@@ -5,7 +5,7 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 
-public class LottoMain2 {
+public class LottoBallAdmin {
 	public static void main(String[] args) {
 		LottoBallService service = new LottoBallServiceImpl();
 		service.setLottoball();
@@ -27,10 +27,7 @@ public class LottoMain2 {
 				e.printStackTrace();
 			}
 		}
-		System.out.print("당첨 번호 : ");
-		for (int num : service.getLottoball()) {
-			System.out.print(num + " ");
-		}
+		
 	
 	}
 }
