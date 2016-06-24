@@ -4,13 +4,15 @@ import java.util.Arrays;
 
 public class LottoBallServiceImpl implements LottoBallService {
 	private int[] winLotto;
-	LottoBean lottoBean;
+	private LottoBean lottoBean;
 	
+	public LottoBallServiceImpl() {
+		winLotto = new int[6];
+		lottoBean = new LottoBean();
+	}
 	@Override
 	public void setLottoball() {
 		// TODO Auto-generated method stub	
-		winLotto = new int[6];
-		lottoBean = new LottoBean();
 		int index=0;
 		boolean flag = false;
 		while(index<6){
