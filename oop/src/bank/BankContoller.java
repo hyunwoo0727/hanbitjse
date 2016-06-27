@@ -17,6 +17,7 @@ public class BankContoller {
 		AccountServiceImp1 acsv = new AccountServiceImp1();
 		BankService bsv = new BankServiceImpl();
 		AccountBean accountBean = null;
+		List<AccountBean>  list = null;
 		while (true) {
 			switch (JOptionPane.showInputDialog("1.통장개설 2.입금 3.조회 4.출금 5.통장내역 6.계좌삭제 \n "
 					+ "============================================================================================\n"
@@ -62,14 +63,16 @@ public class BankContoller {
 				bsv.openAccount(accountBean);
 				break;
 			case "12":
-				List<AccountBean> list = bsv.AccountList();
+				list = bsv.AccountList();
 				JOptionPane.showMessageDialog(null, list); 
 				break;
 			case "13":
-				JOptionPane.showMessageDialog(null, bsv.findByAccountNO(JOptionPane.showInputDialog("계좌번호 입력")));
+				accountBean = bsv.findByAccountNO(JOptionPane.showInputDialog("계좌번호 입력"));
+				JOptionPane.showMessageDialog(null, accountBean==null ? "계좌가 없습니다" : accountBean.toString());
 				break;
 			case "14":
-				JOptionPane.showMessageDialog(null, bsv.findByName(JOptionPane.showInputDialog("이름")));
+				list = bsv.findByName(JOptionPane.showInputDialog("이름"));
+				JOptionPane.showMessageDialog(null, list.size()==0 ? "일치하는 계좌가 없습니다" : list);
 				break;
 			case "15":
 				JOptionPane.showMessageDialog(null, "총 통장수 : " + bsv.count());
