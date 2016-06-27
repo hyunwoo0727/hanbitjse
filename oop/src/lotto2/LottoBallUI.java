@@ -32,7 +32,6 @@ public class LottoBallUI extends JFrame implements ActionListener {
 		// 300,400은 x,y 좌표 1200 300은 width height
 		this.setVisible(true);
 	}
-	
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
