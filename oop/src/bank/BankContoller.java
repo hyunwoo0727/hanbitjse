@@ -4,11 +4,7 @@
 package bank;
 
 import java.util.List;
-
 import javax.swing.JOptionPane;
-
-import jdk.nashorn.internal.scripts.JO;
-
 
 /**
  * @date   : 2016. 6. 15.
@@ -22,7 +18,10 @@ public class BankContoller {
 		BankService bsv = new BankServiceImpl();
 		AccountBean accountBean = null;
 		while (true) {
-			switch (JOptionPane.showInputDialog("1.통장개설 2.입금 3.조회 4.출금 5.통장내역 6.계좌삭제 11.통장개설(관리자) 0.종료")) {
+			switch (JOptionPane.showInputDialog("1.통장개설 2.입금 3.조회 4.출금 5.통장내역 6.계좌삭제 \n "
+					+ "============================================================================================\n"
+					+ " 11.통장개설(관리자)"
+					+ "12.전체조회 13.계좌번호로 검색 14.이름,아이디로 검색 15.총 계좌수 17.비밀번호 변경 18.계좌삭제 0.종료")) {
 			case "1":
 				String[] spec = JOptionPane.showInputDialog("예금주,ID,PW").split(",");
 				acsv.openAccout(spec[0],spec[1],spec[2]);
