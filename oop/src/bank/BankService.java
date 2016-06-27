@@ -20,10 +20,8 @@ public interface BankService {
 	public List<AccountBean> findByName(String name);
 	// 5. READ(전체통장수)
 	public int count();
-	// 6. READ 통장내역
-	public void showAccount();
 	// 7. UPDATE : 사용자 요청으로 비번만 변경
 	public String updateAccount(AccountBean accountBean);
 	// 8. DELETE 해지
-	public String closeAccount(String accountNo,String pw);
+	public String closeAccount(String accountNo);
 }

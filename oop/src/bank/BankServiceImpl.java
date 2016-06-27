@@ -51,11 +51,6 @@ public class BankServiceImpl implements BankService{
 		return accountList.size();
 	}
 	@Override
-	public void showAccount() {
-		// TODO Auto-generated method stub
-		
-	}
-	@Override
 	public String updateAccount(AccountBean accountBean) {
 		for (AccountBean searchBean : accountList) {
 			if(searchBean.getAccount()==accountBean.getAccount()){
@@ -66,13 +61,13 @@ public class BankServiceImpl implements BankService{
 		return "비밀번호가 일치하지 않습니다";
 	}
 	@Override
-	public String closeAccount(String accountNo,String pw) {
-		for (AccountBean accountBean : accountList) {
-			if(accountBean.getAccount()==Integer.parseInt(accountNo)&&accountBean.getPw().equals(pw)){
-				accountList.remove(accountBean);
-				return "삭제하였습니다";
-			}
+	public String closeAccount(String accountNo) {
+		AccountBean aBean = findByAccountNO(accountNo);
+		if(aBean==null){
+			return "찾는 계좌가 없습니다";
+		}else{
+			accountList.remove(aBean);
+			return "삭제 성공";
 		}
-		return "비밀번호가 일치하지 않습니다";
 	}
 }

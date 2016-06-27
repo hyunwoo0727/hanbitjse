@@ -22,7 +22,7 @@ public class BankContoller {
 			switch (JOptionPane.showInputDialog("1.통장개설 2.입금 3.조회 4.출금 5.통장내역 6.계좌삭제 \n "
 					+ "============================================================================================\n"
 					+ " 11.통장개설(관리자)"
-					+ "12.전체조회 13.계좌번호로 검색 14.이름으로 검색 15.총 계좌수 17.비밀번호 변경 18.계좌삭제 0.종료")) {
+					+ "12.전체조회 13.계좌번호로 검색 14.이름으로 검색 15.총 계좌수 16.비밀번호 변경 17.계좌삭제 0.종료")) {
 			case "1":
 				String[] spec = JOptionPane.showInputDialog("예금주,ID,PW").split(",");
 				acsv.openAccout(spec[0],spec[1],spec[2]);
@@ -78,17 +78,14 @@ public class BankContoller {
 				JOptionPane.showMessageDialog(null, "총 통장수 : " + bsv.count());
 				break;
 			case "16":
-				break;
-			case "17":
 				spec = JOptionPane.showInputDialog("계좌번호,새로운 pw 입력").split(",");
 				accountBean = new AccountBean();
 				accountBean.setAccount(spec[0]);
 				accountBean.setPw(spec[1]);
 				JOptionPane.showMessageDialog(null, bsv.updateAccount(accountBean)); 
 				break;
-			case "18":
-				spec = JOptionPane.showInputDialog("계좌번호,비밀번호 입력").split(",");
-				JOptionPane.showMessageDialog(null, bsv.closeAccount(spec[0], spec[1]));
+			case "17":
+				JOptionPane.showMessageDialog(null, bsv.closeAccount(JOptionPane.showInputDialog("계좌번호")));
 				break;
 			default:
 				if(JOptionPane.showConfirmDialog(null, "Are you sure you want to exit?")==0){
