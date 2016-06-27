@@ -36,14 +36,14 @@ public class BankServiceImpl implements BankService{
 		return acBean;
 	}
 	@Override
-	public AccountBean findByName(String name,String id) {
-		AccountBean acBean = null;
+	public List<AccountBean> findByName(String name) {
+		List<AccountBean> list = new ArrayList<AccountBean>();
 		for (AccountBean accountBean : accountList) {
-			if(accountBean.getName().equals(name)&&accountBean.getId().equals(id)){
-				return accountBean;
+			if(accountBean.getName().equals(name)){
+				list.add(accountBean);
 			}
 		}
-		return acBean;
+		return list;
 	}
 	@Override
 	public int count() {
@@ -73,6 +73,6 @@ public class BankServiceImpl implements BankService{
 				return "삭제하였습니다";
 			}
 		}
-		return "비밀번호가 다릅니다";
+		return "비밀번호가 일치하지 않습니다";
 	}
 }

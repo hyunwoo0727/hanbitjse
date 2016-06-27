@@ -1,6 +1,5 @@
 package bank;
 
-import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -18,7 +17,7 @@ public interface BankService {
 	// 3. READ (계좌번호로 조회)
 	public AccountBean findByAccountNO(String accoutNo);
 	// 4. READ(이름)
-	public AccountBean findByName(String name,String id);
+	public List<AccountBean> findByName(String name);
 	// 5. READ(전체통장수)
 	public int count();
 	// 6. READ 통장내역
