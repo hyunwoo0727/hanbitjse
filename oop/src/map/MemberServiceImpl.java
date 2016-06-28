@@ -29,9 +29,9 @@ public class MemberServiceImpl implements MemberService{
 	@Override
 	public String login(MemberBean mBean) {
 		if(map.containsKey(mBean.getId())){
-			if(this.map.get(mBean.getId()).getPw().equals(mBean.getPw())){
+			if(this.map.get(mBean.getId()).getPw().equals(mBean.getPw())){	
 				session = map.get(mBean.getId());
-				return mBean.getId() + "님 환영합니다"; 
+				return session.getId() + "님 환영합니다"; 
 			}
 			return "비밀번호를 확인하세요";
 		}
