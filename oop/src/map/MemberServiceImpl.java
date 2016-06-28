@@ -28,7 +28,10 @@ public class MemberServiceImpl implements MemberService{
 	@Override
 	public String login(MemberBean mBean) {
 		// TODO Auto-generated method stub
-		return this.list.get(mBean.getId()).getPw().equals(mBean.getPw()) ? mBean.getId() + "님 환영합니다" : "로그인 실패";
+		if(list.containsKey(mBean.getId())){
+			return this.list.get(mBean.getId()).getPw().equals(mBean.getPw()) ? mBean.getId() + "님 환영합니다" : "로그인 실패";
+		}
+		return "아이디가 없습니다";
 	}
 	@Override
 	public MemberBean detail(String id) {
