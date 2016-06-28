@@ -1,8 +1,7 @@
 package bank;
 
-import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
+import java.util.Vector;
 
 /**
  * @date   :2016. 6. 27.
@@ -16,7 +15,7 @@ public class BankServiceImpl implements BankService{
 	
 	public BankServiceImpl() {
 		// TODO Auto-generated constructor stub
-		accountList = new ArrayList<AccountBean>();
+		accountList = new Vector<AccountBean>();
 	}
 	@Override
 	public void openAccount(AccountBean accountBean) {
@@ -38,7 +37,7 @@ public class BankServiceImpl implements BankService{
 	}
 	@Override
 	public List<AccountBean> findByName(String name) {
-		List<AccountBean> tempList = new ArrayList<AccountBean>();
+		List<AccountBean> tempList = new Vector<AccountBean>();
 		for (AccountBean accountBean : accountList) {
 			if(accountBean.getName().equals(name)){
 				tempList.add(accountBean);
