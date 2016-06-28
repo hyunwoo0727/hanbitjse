@@ -1,6 +1,7 @@
 package bank;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 /**
@@ -37,13 +38,13 @@ public class BankServiceImpl implements BankService{
 	}
 	@Override
 	public List<AccountBean> findByName(String name) {
-		List<AccountBean> list = new ArrayList<AccountBean>();
+		List<AccountBean> tempList = new ArrayList<AccountBean>();
 		for (AccountBean accountBean : accountList) {
 			if(accountBean.getName().equals(name)){
-				list.add(accountBean);
+				tempList.add(accountBean);
 			}
-		}
-		return list;
+		}	
+		return tempList;
 	}
 	@Override
 	public int count() {
@@ -63,11 +64,10 @@ public class BankServiceImpl implements BankService{
 	@Override
 	public String closeAccount(String accountNo) {
 		AccountBean aBean = findByAccountNO(accountNo);
-		if(aBean==null){
-			return "찾는 계좌가 없습니다";
-		}else{
+		if(aBean!=null){
 			accountList.remove(aBean);
 			return "삭제 성공";
 		}
+		return "찾는 계좌가 없습니다";
 	}
 }

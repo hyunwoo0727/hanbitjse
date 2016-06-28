@@ -72,7 +72,7 @@ public class BankContoller {
 				break;
 			case "14":
 				list = bsv.findByName(JOptionPane.showInputDialog("이름"));
-				JOptionPane.showMessageDialog(null, list.size()==0 ? "일치하는 계좌가 없습니다" : list);
+				JOptionPane.showMessageDialog(null, list.isEmpty() ? "일치하는 계좌가 없습니다" : list);
 				break;
 			case "15":
 				JOptionPane.showMessageDialog(null, "총 통장수 : " + bsv.count());
