@@ -21,7 +21,7 @@ public class MemberController {
 		MemberBean tempBean = new MemberBean();
 		Map<String, MemberBean> tempList = new HashMap<String,MemberBean>();
 		String[] spec = null;
-		String search = "";
+//		String search = ""; 출력용 일단 제외 
 		while (true) {
 			switch (JOptionPane.showInputDialog(""
 					+ "--- 회원이 보는 화면 ---\n"
