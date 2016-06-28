@@ -13,6 +13,7 @@ import java.util.Map;
 
 public class MemberServiceImpl implements MemberService{
 	private Map<String, MemberBean> map;
+	private MemberBean session;
 	
 	public MemberServiceImpl() {
 		map = new HashMap<String, MemberBean>();
@@ -28,14 +29,18 @@ public class MemberServiceImpl implements MemberService{
 	@Override
 	public String login(MemberBean mBean) {
 		if(map.containsKey(mBean.getId())){
-			return this.map.get(mBean.getId()).getPw().equals(mBean.getPw()) ? mBean.getId() + "님 환영합니다" : "로그인 실패";
+			if(this.map.get(mBean.getId()).getPw().equals(mBean.getPw())){
+				session = map.get(mBean.getId());
+				return mBean.getId() + "님 환영합니다"; 
+			}
+			return "비밀번호를 확인하세요";
 		}
 		return "아이디가 없습니다";
 	}
 	@Override
-	public MemberBean detail(String id) {
+	public MemberBean detail() {
 		// TODO Auto-generated method stub
-		return this.map.get(id);
+		return this.session;
 	}
 	@Override
 	public Map<String, MemberBean> list() {

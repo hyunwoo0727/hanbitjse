@@ -41,7 +41,7 @@ public class MemberController {
 				JOptionPane.showMessageDialog(null, mService.login(tempBean));
 				break;
 			case "3": // 내정보보기
-				JOptionPane.showMessageDialog(null, mService.detail(tempBean.getId()));
+				JOptionPane.showMessageDialog(null, mService.detail());
 				break;
 			case "4": // 정보수정(비밀번호)
 				spec = JOptionPane.showInputDialog("아이디,비밀번호 입력").split(",");

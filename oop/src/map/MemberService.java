@@ -12,7 +12,7 @@ import java.util.Map;
 public interface MemberService {
 	public String join(MemberBean mBean);
 	public String login(MemberBean mBean);
-	public MemberBean detail(String id);
+	public MemberBean detail();
 	public Map<String,MemberBean> list();
 	public MemberBean findById(String id);
 	public Map<String,MemberBean> findByName(String name);
