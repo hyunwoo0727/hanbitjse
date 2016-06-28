@@ -57,13 +57,16 @@ public class MemberController {
 				JOptionPane.showMessageDialog(null, tempList.isEmpty()? "회원이 없습니다" : tempList);
 				break;
 			case "12": // 아이디로 검색
-				JOptionPane.showMessageDialog(null, mService.findById(JOptionPane.showInputDialog("검색할 아이디를 입력하세요")));
+				tempBean = mService.findById(JOptionPane.showInputDialog("검색할 아이디를 입력하세요"));
+				JOptionPane.showMessageDialog(null, tempBean==null ? "없는 아이디입니다" : tempBean);
 				break;
 			case "13": // 이름으로 검색 
-				JOptionPane.showMessageDialog(null, mService.findByName(JOptionPane.showInputDialog("검색할 이름을 입력하세요")));
+				tempList = mService.findByName(JOptionPane.showInputDialog("검색할 이름을 입력하세요"));
+				JOptionPane.showMessageDialog(null, tempList.isEmpty()? "해당 이름의 회원이 없습니다" : tempList);
 				break;
 			case "14":// 성별로 검색
-				JOptionPane.showMessageDialog(null, mService.findByGender(JOptionPane.showInputDialog("검색할 성별을 입력하세요")));
+				tempList = mService.findByGender(JOptionPane.showInputDialog("검색할 성별을 입력하세요"));
+				JOptionPane.showMessageDialog(null, tempList.isEmpty()? "해당 성별의 회원이 없습니다" : tempList);
 				break;
 			case "15": // 회원수 
 				JOptionPane.showMessageDialog(null, mService.count() + "명");
