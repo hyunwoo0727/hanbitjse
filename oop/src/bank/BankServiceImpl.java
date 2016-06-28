@@ -53,11 +53,10 @@ public class BankServiceImpl implements BankService{
 	}
 	@Override
 	public String updateAccount(AccountBean accountBean) {
-		for (AccountBean searchBean : accountList) {
-			if(searchBean.getAccount()==accountBean.getAccount()){
-				searchBean.setPw(accountBean.getPw());
-				return "변경 완료!";
-			}
+		AccountBean aBean = findByAccountNO(String.valueOf(accountBean.getAccount()));
+		if(aBean!=null){
+			aBean.setPw(accountBean.getPw());
+			return "변경 완료";
 		}
 		return "비밀번호가 일치하지 않습니다";
 	}
