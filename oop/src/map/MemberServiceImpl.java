@@ -67,11 +67,9 @@ public class MemberServiceImpl implements MemberService{
 	}
 	@Override
 	public String updatePw(MemberBean mBean) {
-		if(map.containsKey(mBean.getId())){
-			map.get(mBean.getId()).setPw(mBean.getPw());           
-			return "변경완료";
-		}
-		return "아이디가 없습니다";
+		map.get(session.getId()).setPw(mBean.getPw());      
+		session.setPw(mBean.getPw());
+		return "변경완료";
 	}
 	@Override
 	public String delete() {

@@ -39,9 +39,7 @@ public class MemberController {
 				JOptionPane.showMessageDialog(null, mService.detail());
 				break;
 			case "4": // 정보수정(비밀번호)
-				spec = JOptionPane.showInputDialog("아이디,비밀번호 입력").split(",");
-				tempBean.setId(spec[0]);
-				tempBean.setPw(spec[1]);
+				tempBean.setPw(JOptionPane.showInputDialog("새로운 비밀번호 입력"));
 				JOptionPane.showMessageDialog(null, mService.updatePw(tempBean));
 				break;
 			case "5": // 탈퇴
