@@ -1,5 +1,6 @@
 package map;
 
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -13,10 +14,10 @@ public interface MemberService {
 	public String join(MemberBean mBean);
 	public String login(MemberBean mBean);
 	public MemberBean detail();
-	public Map<String,MemberBean> list();
+	public List<MemberBean> list();
 	public MemberBean findById(String id);
-	public Map<String,MemberBean> findByName(String name);
-	public Map<String, MemberBean> findByGender(String gender);
+	public List<MemberBean> findByName(String name);
+	public List<MemberBean> findByGender(String gender);
 	public int GenderCount(String gender);
 	public String updatePw(MemberBean mBean);
 	public String delete();

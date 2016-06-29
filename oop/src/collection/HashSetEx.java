@@ -2,6 +2,7 @@ package collection;
 
 import java.util.HashSet;
 import java.util.Set;
+
 import school.StudentBean;
 
 public class HashSetEx {

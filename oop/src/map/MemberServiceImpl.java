@@ -1,7 +1,8 @@
 package map;
 
+import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.Iterator;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -43,25 +44,26 @@ public class MemberServiceImpl implements MemberService{
 		return this.session;
 	}
 	@Override
-	public Map<String, MemberBean> list() {
-		return this.map;
+	public List<MemberBean> list() {
+		List<MemberBean> list = new ArrayList<MemberBean>();
+		for (Map.Entry<String, MemberBean> entry : map.entrySet()) {
+			list.add(entry.getValue());
+		}
+		return list; 
 	}
 	@Override
 	public MemberBean findById(String id) {
 		return map.containsKey(id) ? map.get(id) : null;
 	}
 	@Override
-	public Map<String, MemberBean> findByName(String name) {
-		Map<String, MemberBean> tempMap = new HashMap<String,MemberBean>();
-		MemberBean tempBean = null;
-		Iterator<MemberBean> it = map.values().iterator();
-		while(it.hasNext()){
-			tempBean = it.next();
-			if(tempBean.getName().equals(name)){
-				tempMap.put(tempBean.getId(), tempBean);
+	public List<MemberBean> findByName(String name) {
+		List<MemberBean> tempList = new ArrayList<MemberBean>();
+		for (Map.Entry<String, MemberBean> entry : map.entrySet()) {
+			if(entry.getValue().getName().equals(name)){
+				tempList.add(entry.getValue());
 			}
 		}
-		return tempMap;
+		return tempList;
 	}
 	@Override
 	public String updatePw(MemberBean mBean) {
@@ -82,24 +84,21 @@ public class MemberServiceImpl implements MemberService{
 		return this.map.size();
 	}
 	@Override
-	public Map<String, MemberBean> findByGender(String gender) {
-		Map<String, MemberBean> tempMap = new HashMap<String,MemberBean>();
-		MemberBean tempBean = null;
-		Iterator<MemberBean> it = map.values().iterator();
-		while(it.hasNext()){
-			tempBean = it.next();
-			if(tempBean.getGender().equals(gender)){
-				tempMap.put(tempBean.getId(), tempBean);
+	public List<MemberBean> findByGender(String gender) {
+		List<MemberBean> tempList = new ArrayList<MemberBean>();
+		for (Map.Entry<String, MemberBean> entry : map.entrySet()) {
+			if(entry.getValue().getName().equals(gender)){
+				tempList.add(entry.getValue());
 			}
 		}
-		return tempMap;
+		return tempList;
 	}
 	@Override
 	public int GenderCount(String gender) {
 		// TODO Auto-generated method stub
 		int count = 0;
-		for(String key : map.keySet()){
-			if(map.get(key).getGender().equals(gender)){
+		for (Map.Entry<String, MemberBean> entry : map.entrySet()) {
+			if(entry.getValue().getGender().equals(gender)){
 				count++;
 			}
 		}

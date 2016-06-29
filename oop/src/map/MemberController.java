@@ -1,7 +1,8 @@
 package map;
 
-import java.util.HashMap;
-import java.util.Map;
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.swing.JOptionPane;
 
 /**
@@ -14,7 +15,7 @@ import javax.swing.JOptionPane;
 public class MemberController {
 	public static void main(String[] args) {
 		MemberService mService = new MemberServiceImpl();
-		Map<String, MemberBean> tempList = new HashMap<String,MemberBean>();
+		List<MemberBean >tempList = new ArrayList<MemberBean>();
 		String[] spec = null;
 		while (true) {
 			MemberBean tempBean = new MemberBean();
