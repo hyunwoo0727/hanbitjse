@@ -72,12 +72,10 @@ public class MemberServiceImpl implements MemberService{
 		return "아이디가 없습니다";
 	}
 	@Override
-	public String delete(String id) {
-		if(map.containsKey(id)){
-			map.remove(id);
-			return "탈퇴완료";
-		}
-		return "아이디가 없습니다";
+	public String delete() {
+		map.remove(session.getId());
+		session = null;
+		return "탈퇴 완료";
 	}
 	@Override
 	public int count() {
@@ -95,5 +93,16 @@ public class MemberServiceImpl implements MemberService{
 			}
 		}
 		return tempMap;
+	}
+	@Override
+	public int GenderCount(String gender) {
+		// TODO Auto-generated method stub
+		int count = 0;
+		for(String key : map.keySet()){
+			if(map.get(key).getGender().equals(gender)){
+				count++;
+			}
+		}
+		return count;
 	}
 }

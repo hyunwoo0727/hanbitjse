@@ -17,8 +17,9 @@ public interface MemberService {
 	public MemberBean findById(String id);
 	public Map<String,MemberBean> findByName(String name);
 	public Map<String, MemberBean> findByGender(String gender);
+	public int GenderCount(String gender);
 	public String updatePw(MemberBean mBean);
-	public String delete(String id);
+	public String delete();
 	public int count();
 	
 }

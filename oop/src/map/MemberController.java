@@ -2,11 +2,7 @@ package map;
 
 import java.util.HashMap;
 import java.util.Map;
-
-import javax.print.attribute.standard.JobKOctetsProcessed;
 import javax.swing.JOptionPane;
-
-import com.sun.scenario.effect.AbstractShadow.ShadowMode;
 
 /**
  * @date   :2016. 6. 28.
@@ -18,11 +14,10 @@ import com.sun.scenario.effect.AbstractShadow.ShadowMode;
 public class MemberController {
 	public static void main(String[] args) {
 		MemberService mService = new MemberServiceImpl();
-		MemberBean tempBean = new MemberBean();
 		Map<String, MemberBean> tempList = new HashMap<String,MemberBean>();
 		String[] spec = null;
-//		String search = ""; 출력용 일단 제외 
 		while (true) {
+			MemberBean tempBean = new MemberBean();
 			switch (JOptionPane.showInputDialog(""
 					+ "--- 회원이 보는 화면 ---\n"
 					+ "1회원가입 2로그인 3.내정보 보기(로긴되있는 상태) 4내정보수정(비번) 5탈퇴 0종료\n"
@@ -35,7 +30,6 @@ public class MemberController {
 				break;
 			case "2": // 로그인(id/pw 입력)
 				spec = JOptionPane.showInputDialog("아이디,비밀번호 입력").split(",");
-				tempBean = new MemberBean();
 				tempBean.setId(spec[0]);
 				tempBean.setPw(spec[1]);
 				JOptionPane.showMessageDialog(null, mService.login(tempBean));
@@ -50,7 +44,7 @@ public class MemberController {
 				JOptionPane.showMessageDialog(null, mService.updatePw(tempBean));
 				break;
 			case "5": // 탈퇴
-				JOptionPane.showMessageDialog(null, mService.delete(JOptionPane.showInputDialog("탈퇴할 아이디를 입력하세요")));
+				JOptionPane.showMessageDialog(null, mService.delete());
 				break;				
 			case "11": // 목록검색
 				tempList = mService.list();
@@ -65,8 +59,9 @@ public class MemberController {
 				JOptionPane.showMessageDialog(null, tempList.isEmpty()? "해당 이름의 회원이 없습니다" : tempList);
 				break;
 			case "14":// 성별로 검색
-				tempList = mService.findByGender(JOptionPane.showInputDialog("검색할 성별을 입력하세요"));
-				JOptionPane.showMessageDialog(null, tempList.isEmpty()? "해당 성별의 회원이 없습니다" : tempList);
+				JOptionPane.showMessageDialog(null, mService.GenderCount(JOptionPane.showInputDialog("성별?(남/여)")));
+				//		tempList = mService.findByGender(JOptionPane.showInputDialog("검색할 성별을 입력하세요"));
+			//	JOptionPane.showMessageDialog(null, tempList.isEmpty()? "해당 성별의 회원이 없습니다" : tempList);
 				break;
 			case "15": // 회원수 
 				JOptionPane.showMessageDialog(null, mService.count() + "명");
